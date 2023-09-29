@@ -1,29 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Task({ task, onDelete, onEdit }) {
+function Todo({ task, onDelete, onEdit }) {
   return (
-    <Link to ="/Todo" > 
     <div className="flex justify-between items-center bg-white p-4 my-2 cursor-pointer rounded-lg shadow-md">
-      
       <div>
-        
+        <Link >
         <input
-          //type="checkbo"
-          checked={task.completed}
+          type="checkbox"
+          checked={task?.completed}
           onChange={() => onEdit(task.id, { ...task, completed: !task.completed })}
           className="mr-2"
         />
-        
+        </Link>
         {task.text}
       </div>
-      </div>
-      </Link>
-  
-);
-}
-      
-      {/* <div className='flex gap-3'>
+       <div className='flex gap-3'>
         <button
           onClick={() => onDelete(task.id)}
           className="mt-2  bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none"
@@ -36,10 +28,16 @@ function Task({ task, onDelete, onEdit }) {
         >
           Modifier
         </button>
-      </div> */}
-    
+      </div>
+      
+    </div>
+
+  );
+}
+
+export default Todo;
 
 
 
 
-export default Task;
+

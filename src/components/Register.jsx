@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 //import InputField from '../InputField/InputField';
+import { Link } from 'react-router-dom';
 
 function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ function RegisterForm() {
       <form className="w-full max-w-sm" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="firstname" className="block text-gray-700 text-lg font-bold mb-2">
-            First Name:
+            Nom:
           </label>
           <input type="text" id="firstname" name="firstname"
             value={formData.firstname}
@@ -43,7 +44,7 @@ function RegisterForm() {
         </div>
         <div className="mb-4">
           <label htmlFor="lastname" className="block text-gray-700 text-lg font-bold mb-2">
-            Last name:
+            Prénoms:
           </label>
           <input type="text" id="lastname" name="lastname"
             value={formData.lastname}
@@ -69,7 +70,7 @@ function RegisterForm() {
         </div>
         <div className="mb-6">
           <label htmlFor="password" className="block text-gray-700 text-lg font-bold mb-2">
-            Password :
+            Mot de passe :
           </label>
           <input type="password" id="password" name="password"
             value={formData.password}
@@ -80,32 +81,20 @@ function RegisterForm() {
             required
           />
         </div>
-        <div className="mb-6">
-          <label htmlFor="password" className="block text-gray-700 text-lg font-bold mb-2">
-            Confirm password:
-          </label>
-          <input type="password" id="password" name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="w-full px-3 py-2 placeholder-gray-300 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none
-             border-gray-600 mb-4 p-2 outline-orange-500 "
-            placeholder="********"
-            required
-          />
-        </div>
+        
         <div className="text-center">
-          <button
+          <Link to='/gestache'
             type="submit"
             className="w-full bg-orange-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none"
           >
             S'inscrire
-          </button>
+          </Link>
         </div>
         <div className="text-center">
           <p className="form-info text-md">Vous avez déjà un compte ? Si oui,
-          <a href="/login.jsx" className=" hover:text-blue-400 font-bold">cliquez ici</a>
-             pour vous
-            connecter.</p>
+          {/* <a href="/Login/Login.jsx" className=" hover:text-blue-400 font-bold">cliquez ici </a> */}
+          <Link to='/Login' className=" hover:text-blue-400 font-bold">cliquez ici</Link>
+              pour vous connecter.</p>
         </div>
 
       </form>
